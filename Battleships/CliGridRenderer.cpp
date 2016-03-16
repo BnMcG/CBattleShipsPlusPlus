@@ -21,7 +21,7 @@ CliGridRenderer::CliGridRenderer()
 /**
  * Override the Render method to draw the battleships on the screen  
  */
-void CliGridRenderer::RenderGame(battleships::Fleet *fOne, battleships::Fleet *fTwo)
+void CliGridRenderer::RenderGame(battleships::Fleet *fOne, battleships::Fleet *fTwo, std::vector<Coordinates> *pOneShots, std::vector<Coordinates> *pTwoShots)
 {
 	std::cout << std::endl << std::endl;
 
@@ -39,9 +39,13 @@ void CliGridRenderer::RenderGame(battleships::Fleet *fOne, battleships::Fleet *f
 			}
 			else
 			{
-				if (fTwo->IsShipAtPosition(Coordinates(x, y)))
+				if (fTwo->IsShipAtPosition(Coordinates(y, x)) && ShotsAtPosition(pOneShots, Coordinates(y,x)))
 				{
-					std::cout << " O\t";
+					std::cout << " X\t";
+				}
+				else if(ShotsAtPosition(pOneShots, Coordinates(y, x)))
+				{
+					std::cout << " #\t";
 				}
 				else
 				{
@@ -85,4 +89,18 @@ void CliGridRenderer::RenderGame(battleships::Fleet *fOne, battleships::Fleet *f
 		// New line for next row
 		std::cout << std::endl;
 	}
+}
+
+bool CliGridRenderer::ShotsAtPosition(std::vector<Coordinates> *shots, Coordinates pos)
+{
+	bool fired = false;
+	for (int i = 0; i < shots->size(); i++)
+	{
+		if (shots->at(i).GetX() == pos.GetX() && shots->at(i).GetY() == pos.GetY())
+		{
+			fired = true;
+		}
+	}
+
+	return fired;
 }

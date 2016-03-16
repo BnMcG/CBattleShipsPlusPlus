@@ -23,7 +23,7 @@ void Game::Start()
 {
 	while (!menu->GameShouldExit())
 	{
-		renderer->RenderGame(this->GetPlayerOneFleet(), this->GetPlayerTwoFleet());
+		renderer->RenderGame(this->GetPlayerOneFleet(), this->GetPlayerTwoFleet(), this->playerOneShots, this->playerTwoShots);
 		menu->RenderMenu();
 	}
 }

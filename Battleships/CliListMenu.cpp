@@ -42,47 +42,47 @@ void CliListMenu::ProcessInput(string input)
 
 		// Decode grid reference
 		char columnChar = input[0];
-		int column = 0;
-		int row = stoi(input.substr(1, input.size() - 1));
+		int x = 0;
+		int y = stoi(input.substr(1, input.size() - 1));
 
 		switch (columnChar)
 		{
 		case 'A':
-			column = 1;
+			x = 0;
 			break;
 		case 'B':
-			column = 2;
+			x = 1;
 			break;
 		case 'C':
-			column = 3;
+			x = 2;
 			break;
 		case 'D':
-			column = 4;
+			x = 3;
 			break;
 		case 'E':
-			column = 5;
+			x = 4;
 			break;
 		case 'F':
-			column = 6;
+			x = 5;
 			break;
 		case 'G':
-			column = 7;
+			x = 6;
 			break;
 		case 'H':
-			column = 8;
+			x = 7;
 			break;
 		case 'I':
-			column = 9;
+			x = 8;
 			break;
 		case 'J':
-			column = 10;
+			x = 9;
 			break;
 		case 'K':
-			column = 11;
+			x = 10;
 			break;
 		}
 
-		Coordinates targetCoords = Coordinates(column, row);
+		Coordinates targetCoords = Coordinates(x, y);
 
 		// Did we hit anything?
 		if (this->playerTwoFleet->IsShipAtPosition(targetCoords)) 
