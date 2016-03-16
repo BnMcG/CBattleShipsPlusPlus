@@ -35,7 +35,7 @@ void CliGridRenderer::RenderGame(battleships::Fleet *fOne, battleships::Fleet *f
 		{
 			if (x == 0)
 			{
-				std::cout << " " << letters[y] << "\t";
+				std::cout << " " << letters[y] << "   ";
 			}
 			else
 			{
@@ -44,18 +44,18 @@ void CliGridRenderer::RenderGame(battleships::Fleet *fOne, battleships::Fleet *f
 				if (fTwo->IsShipAtPosition(Coordinates(y, x)) && ShotsAtPosition(pOneShots, Coordinates(y,x)))
 				{
 					// output X if this shot was a hit
-					std::cout << " X\t";
+					std::cout << " X   ";
 				}
 				else if(ShotsAtPosition(pOneShots, Coordinates(y, x)))
 				{
 					// output # if this shot was a miss
-					std::cout << " #\t";
+					std::cout << " #   ";
 				}
 				else
 				{
 					// Output ~ if there hasn't been an attempted shot here - we don't want the player
 					// knowing where their enemy's ships are!
-					std::cout << " ~\t";
+					std::cout << " ~   ";
 				}
 			}
 		}
@@ -78,19 +78,19 @@ void CliGridRenderer::RenderGame(battleships::Fleet *fOne, battleships::Fleet *f
 			// First row so output column letters
 			if (x == 0)
 			{
-				std::cout << " " << letters[y] << "\t";
+				std::cout << " " << letters[y] << "   ";
 			}
 			else
 			{
 				if (fOne->IsShipAtPosition(Coordinates(x, y)))
 				{
 					// If there's a ship here, output a O to indicate it
-					std::cout << " O\t";
+					std::cout << " O   ";
 				}
 				else
 				{
 					// Otherwise output wavy sea lines
-					std::cout << " ~\t";
+					std::cout << " ~   ";
 				}
 			}
 		}
