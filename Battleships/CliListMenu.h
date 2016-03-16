@@ -13,7 +13,7 @@ public:
 private:
 	battleships::Fleet *playerOneFleet;
 	battleships::Fleet *playerTwoFleet;
-	std::vector<Coordinates> *playerOneShots;
-	std::vector<Coordinates> *playerTwoShots;
+	std::vector<Coordinates> *playerOneShots; // Shots fired by player one
+	std::vector<Coordinates> *playerTwoShots; // Shots fired by player two
 };
 

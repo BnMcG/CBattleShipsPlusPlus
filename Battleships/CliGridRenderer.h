@@ -2,6 +2,9 @@
 
 #include "Renderer.h"
 
+// Implementation of the Renderer class that renders the game in two grids
+// One for the player and one for the AI. The player can't see the AI's 
+// ship positions
 class CliGridRenderer : public Renderer
 {
 // Inherit constructor from parent (since C++ 11)

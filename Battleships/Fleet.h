@@ -23,8 +23,8 @@ namespace battleships
 		Cruiser GetCruiser();
 		Destroyer GetDestroyer();
 		Submarine GetSubmarine();
-		std::vector<Ship> GetShips();
-		bool IsShipAtPosition(Coordinates pos);
+		std::vector<Ship> GetShips(); // Method to get all the ships in the fleet
+		bool IsShipAtPosition(Coordinates pos); // Method to check whether a ship is at the given position
 	private:
 		std::vector<Ship> ships;
 		AircraftCarrier aircraftCarrier;
@@ -32,8 +32,8 @@ namespace battleships
 		Cruiser cruiser;
 		Destroyer destroyer;
 		Submarine submarine;
-		void PositionShips();
-		int RandInt();
+		void PositionShips(); // Method to position ships on board
+		int RandInt(); // Method to generate random integer
 	};
 
 }

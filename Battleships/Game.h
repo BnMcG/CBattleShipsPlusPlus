@@ -17,14 +17,14 @@ public:
 	battleships::Fleet *GetPlayerTwoFleet();
 	std::vector<Coordinates> *GetPlayerOneShots();
 	std::vector<Coordinates> *GetPlayerTwoShots();
-	void SetupCliMenu();
+	void SetupCliMenu(); // Method to add fleets and attempted shots to the CLI menu system, add a method like this for all menu systems you want to use
 private:
-	Renderer *renderer;
-	Menu *menu;
+	Renderer *renderer; // Rendering system
+	Menu *menu; // Menu system
 	battleships::Fleet *playerOneFleet;
 	battleships::Fleet *playerTwoFleet;
-	std::vector<Coordinates> *playerOneShots;
-	std::vector<Coordinates> *playerTwoShots;
+	std::vector<Coordinates> *playerOneShots; // Shots fired by P1
+	std::vector<Coordinates> *playerTwoShots; // Shots fired by P2
 
 };
 

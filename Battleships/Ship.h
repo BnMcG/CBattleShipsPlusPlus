@@ -14,23 +14,25 @@ namespace battleships
 		Ship();
 		~Ship();
 
-		Coordinates GetStartCoordinates();
-		Coordinates GetEndCoordinates();
+		// either the X or Y value should be the same in both start and end coordinates
+		// This is because ships can't move diagonally
+		Coordinates GetStartCoordinates(); // Where this ship starts
+		Coordinates GetEndCoordinates(); // Where this ship ends
 
 		void SetStartCoordinates(Coordinates c);
 		void SetEndCoordinates(Coordinates c);
 
-		bool GetSunk();
-		void SetSunk(bool s);
+		bool GetSunk(); // Has this ship been sunk
+		void SetSunk(bool s); // Sink this ship / Or unsink it, Davey Jones style.
 
-		int GetLength();
+		int GetLength(); // Find out how long ths ship is
 
 	private:
 		Coordinates startCoordinates;
 		Coordinates endCoordinates;
-		bool sunk;
+		bool sunk; // Sunk or not status
 	protected:
-		int length;
+		int length; // Length
 	};
 
 }

@@ -1,4 +1,6 @@
 #pragma once
+
+// Essentially a wrapper to store x and y values in since we use them so often.
 class Coordinates
 {
 public:

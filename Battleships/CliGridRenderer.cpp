@@ -39,16 +39,22 @@ void CliGridRenderer::RenderGame(battleships::Fleet *fOne, battleships::Fleet *f
 			}
 			else
 			{
+				// We go y,x because of the order in which the for loops are
+				// Or at least that seems to work when we're playing the game, so we're rolling with it
 				if (fTwo->IsShipAtPosition(Coordinates(y, x)) && ShotsAtPosition(pOneShots, Coordinates(y,x)))
 				{
+					// output X if this shot was a hit
 					std::cout << " X\t";
 				}
 				else if(ShotsAtPosition(pOneShots, Coordinates(y, x)))
 				{
+					// output # if this shot was a miss
 					std::cout << " #\t";
 				}
 				else
 				{
+					// Output ~ if there hasn't been an attempted shot here - we don't want the player
+					// knowing where their enemy's ships are!
 					std::cout << " ~\t";
 				}
 			}
@@ -64,11 +70,12 @@ void CliGridRenderer::RenderGame(battleships::Fleet *fOne, battleships::Fleet *f
 	// Player board
 	for (int x = 0; x < 11; x++)
 	{
-		// First Column so 
+		// First Column so output row numbers
 		std::cout << std::setfill('0') << std::setw(2) << x;
 
 		for (int y = 0; y < 11; y++)
 		{
+			// First row so output column letters
 			if (x == 0)
 			{
 				std::cout << " " << letters[y] << "\t";
@@ -77,10 +84,12 @@ void CliGridRenderer::RenderGame(battleships::Fleet *fOne, battleships::Fleet *f
 			{
 				if (fOne->IsShipAtPosition(Coordinates(x, y)))
 				{
+					// If there's a ship here, output a O to indicate it
 					std::cout << " O\t";
 				}
 				else
 				{
+					// Otherwise output wavy sea lines
 					std::cout << " ~\t";
 				}
 			}
@@ -91,6 +100,7 @@ void CliGridRenderer::RenderGame(battleships::Fleet *fOne, battleships::Fleet *f
 	}
 }
 
+// Check if shots were fired on the given set of coordinates
 bool CliGridRenderer::ShotsAtPosition(std::vector<Coordinates> *shots, Coordinates pos)
 {
 	bool fired = false;
@@ -98,6 +108,7 @@ bool CliGridRenderer::ShotsAtPosition(std::vector<Coordinates> *shots, Coordinat
 	{
 		if (shots->at(i).GetX() == pos.GetX() && shots->at(i).GetY() == pos.GetY())
 		{
+			// Only return true if both x and y values match
 			fired = true;
 		}
 	}
