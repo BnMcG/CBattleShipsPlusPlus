@@ -5,12 +5,17 @@
 #include "Game.h"
 #include <iostream>
 #include <conio.h>
+#include <time.h>
 
 #include "CliListMenu.h"
 #include "CliGridRenderer.h"
 
 int main()
 {
+	// Seed rand(). Comment this out to generate ships in the same position each time
+	// If this gets called once strange things happen, so make sure not to
+	srand(time(NULL));
+
 	Game game = Game(new CliGridRenderer());
 	game.SetupCliMenu(); // Setup a CLI based menu 
 

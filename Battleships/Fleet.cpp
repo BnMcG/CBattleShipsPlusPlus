@@ -9,9 +9,6 @@ namespace battleships
 
 	Fleet::Fleet()
 	{
-		// Seed rand(). Comment this out to generate ships in the same position each time
-		srand(time(NULL));
-
 		this->ships = std::vector<Ship>();
 		this->aircraftCarrier = AircraftCarrier();
 		this->battleship = Battleship();
